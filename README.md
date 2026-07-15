@@ -262,7 +262,8 @@ Set `DRY_RUN_MODE=false` for Twilio and email in production.
 ### Supabase
 
 - Enable Email auth in Authentication → Providers
-- Run migration SQL
+- Run **all** migration SQL files in order (`001` through `006`) in the Supabase SQL Editor
+- If invite accept fails with "Unable to complete setup", run `005_email_verification.sql` (adds `email_verified_at` to `profiles`)
 - Run seed script against production (optional)
 - Configure Storage bucket `property-images` for photo uploads (future)
 

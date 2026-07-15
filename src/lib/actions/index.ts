@@ -554,16 +554,36 @@ export async function acceptInvitationAction(data: unknown) {
 
   const now = new Date().toISOString();
 
-  const { error: profileError } = await service.from("profiles").insert({
+  const profileRow = {
     id: userId,
     organization_id: invitation.organization_id,
-    email: invitation.email,
+    email: invitation.email.trim().toLowerCase(),
     full_name: parsed.fullName,
     role: invitation.role,
     email_verified_at: now,
-  });
+  };
+
+  let { error: profileError } = await service
+    .from("profiles")
+    .upsert(profileRow, { onConflict: "id" });
+
+  if (
+    profileError?.message?.includes("email_verified_at") ||
+    profileError?.code === "42703"
+  ) {
+    const { email_verified_at: _removed, ...withoutVerified } = profileRow;
+    const retry = await service
+      .from("profiles")
+      .upsert(withoutVerified, { onConflict: "id" });
+    profileError = retry.error;
+  }
 
   if (profileError) {
+    console.error(
+      "[invite] profile upsert failed:",
+      profileError.code,
+      profileError.message
+    );
     await service.auth.admin.deleteUser(userId);
     return { error: "Unable to complete setup. Please try again." };
   }
