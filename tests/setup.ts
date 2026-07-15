@@ -1,0 +1,11 @@
+process.env.SKIP_SMTP_VALIDATION = "true";
+process.env.OTP_SECRET = "test-otp-secret-at-least-32-characters-long!!";
+process.env.OTP_EXPIRY_MINUTES = "10";
+process.env.SMTP_HOST = "smtp-relay.brevo.com";
+process.env.SMTP_PORT = "587";
+process.env.SMTP_USER = "test-user";
+process.env.SMTP_PASSWORD = "test-password";
+process.env.SMTP_FROM_EMAIL = "no-reply@example.com";
+process.env.SMTP_FROM_NAME = "Test App";
+process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+process.env.SUPABASE_SERVICE_ROLE_KEY = "test-service-role-key";
