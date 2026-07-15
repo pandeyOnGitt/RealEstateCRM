@@ -4,7 +4,7 @@ import {
   getSmtpConfig,
   type SmtpEnvConfig,
 } from "@/lib/config/smtp";
-import { isDryRunMode } from "@/lib/utils";
+import { isDryRunMode, isProductionDeployment } from "@/lib/utils";
 
 let transporter: Transporter | null = null;
 
@@ -180,11 +180,19 @@ export async function sendTeamInviteEmail(
   params: TeamInviteEmailParams
 ): Promise<{ messageId: string; dryRun: boolean }> {
   if (isDryRunMode()) {
+    if (isProductionDeployment()) {
+      throw new Error(
+        "Email is disabled in production. Set DRY_RUN_MODE=false in Vercel environment variables."
+      );
+    }
     return {
       messageId: `DRY_RUN_INVITE_${Date.now()}`,
       dryRun: true,
     };
   }
+
+  const { validateSmtpConfig } = await import("@/lib/config/smtp");
+  validateSmtpConfig();
 
   const config = getSmtpConfig();
   const content = buildTeamInviteEmailContent(params, config.fromName);

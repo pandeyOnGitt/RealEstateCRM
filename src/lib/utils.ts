@@ -39,6 +39,14 @@ export function isDryRunMode(): boolean {
   return process.env.DRY_RUN_MODE === "true";
 }
 
+export function isProductionDeployment(): boolean {
+  return process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+}
+
 export function getAppUrl(): string {
-  return process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const configured = process.env.NEXT_PUBLIC_APP_URL?.trim().replace(/\/$/, "");
+  if (configured) return configured;
+  const vercelHost = process.env.VERCEL_URL?.trim();
+  if (vercelHost) return `https://${vercelHost}`;
+  return "http://localhost:3000";
 }

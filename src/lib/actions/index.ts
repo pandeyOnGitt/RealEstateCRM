@@ -490,9 +490,11 @@ export async function inviteTeamMemberAction(data: unknown) {
 
     revalidatePath("/team");
     return { success: true, dryRun };
-  } catch {
+  } catch (err) {
+    const reason = err instanceof Error ? err.message : "Email delivery failed";
+    console.error("[email] team invite failed:", reason);
     await supabase.from("team_invitations").delete().eq("token", token);
-    return { error: "Failed to send invitation email. Check SMTP settings." };
+    return { error: reason };
   }
 }
 

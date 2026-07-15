@@ -20,7 +20,8 @@ const REQUIRED_SMTP_KEYS = [
 ] as const;
 
 export function getSmtpConfig(): SmtpEnvConfig {
-  const trim = (v: string | undefined) => v?.trim() || "";
+  const trim = (v: string | undefined) =>
+    (v?.trim() || "").replace(/^["']|["']$/g, "");
   return {
     host: trim(process.env.SMTP_HOST),
     port: Number(trim(process.env.SMTP_PORT) || 587),

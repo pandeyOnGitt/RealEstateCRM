@@ -231,9 +231,33 @@ npm i -g vercel
 vercel
 ```
 
-Add all env vars from `.env.example` in Vercel dashboard. Set:
-- `NEXT_PUBLIC_APP_URL=https://your-app.vercel.app`
-- `DRY_RUN_MODE=false` (when Twilio is configured)
+Add all env vars from `.env.example` in Vercel dashboard (Project → Settings → Environment Variables).
+
+**Required for production email:**
+
+| Variable | Production value |
+|----------|------------------|
+| `NEXT_PUBLIC_APP_URL` | `https://your-app.vercel.app` (your real Vercel URL) |
+| `DRY_RUN_MODE` | `false` |
+| `SMTP_HOST` | `smtp-relay.brevo.com` |
+| `SMTP_PORT` | `587` |
+| `SMTP_USER` | Your Brevo SMTP login (`xxx@smtp-brevo.com`) |
+| `SMTP_PASSWORD` | Your Brevo SMTP key (`xsmtpsib-...`) |
+| `SMTP_FROM_EMAIL` | Verified sender in Brevo |
+| `SMTP_FROM_NAME` | `EstateFlow CRM` (no quotes needed) |
+| `OTP_SECRET` | 32+ char random string |
+
+Also add all Supabase keys (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`).
+
+After adding variables, **redeploy** (Deployments → ⋯ → Redeploy). Env changes do not apply to existing deployments until redeployed.
+
+If invites still fail, check Vercel **Logs** for `[email] team invite failed:` — common causes:
+- `DRY_RUN_MODE` still `true`
+- Missing `SMTP_*` variables
+- `SMTP_PASSWORD` is your Brevo account password instead of the SMTP key
+- `SMTP_FROM_EMAIL` not verified in Brevo → Senders & Domains
+
+Set `DRY_RUN_MODE=false` for Twilio and email in production.
 
 ### Supabase
 
@@ -269,4 +293,3 @@ All external integrations use adapter services with production + dry-run modes:
 ## License
 
 MIT
-# RealEstateCRM
