@@ -13,10 +13,11 @@ import {
   BarChart3,
   Bell,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import type { Profile } from "@/lib/types";
 import { getInitials } from "@/lib/utils";
 import { LogoutButton } from "@/components/layout/logout-button";
+import { SidebarNavLink } from "@/components/layout/nav-link";
+import { useNavigationStart } from "@/components/layout/navigation-provider";
 
 const sidebarItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -32,6 +33,7 @@ const sidebarItems = [
 
 export function Sidebar({ user }: { user: Profile }) {
   const pathname = usePathname();
+  const startNavigation = useNavigationStart();
 
   return (
     <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 border-r bg-card">
@@ -44,21 +46,15 @@ export function Sidebar({ user }: { user: Profile }) {
           <p className="text-xs text-muted-foreground">Real Estate CRM</p>
         </div>
       </div>
-      <nav className="flex-1 space-y-1 p-4">
-        {sidebarItems.map(({ href, label, icon: Icon }) => (
-          <Link
+      <nav className="flex-1 space-y-1 p-4" onClick={startNavigation}>
+        {sidebarItems.map(({ href, label, icon }) => (
+          <SidebarNavLink
             key={href}
             href={href}
-            className={cn(
-              "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
-              pathname.startsWith(href)
-                ? "bg-primary/10 text-primary"
-                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-            )}
-          >
-            <Icon className="h-4 w-4" />
-            {label}
-          </Link>
+            label={label}
+            icon={icon}
+            isActive={pathname.startsWith(href)}
+          />
         ))}
       </nav>
       <div className="border-t p-4 space-y-3">
