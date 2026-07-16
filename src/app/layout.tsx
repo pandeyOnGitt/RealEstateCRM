@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "EstateVoxa CRM",
   description: "Mobile-first Real Estate CRM for sales teams",
+  icons: {
+    icon: "/estatevoxa-logo.png",
+    apple: "/estatevoxa-logo.png",
+  },
 };
 
 export const viewport: Viewport = {
