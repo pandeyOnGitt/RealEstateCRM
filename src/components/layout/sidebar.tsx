@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import type { Profile } from "@/lib/types";
 import { getInitials } from "@/lib/utils";
+import { BrandLogo } from "@/components/brand-logo";
 import { LogoutButton } from "@/components/layout/logout-button";
 import { SidebarNavLink } from "@/components/layout/nav-link";
 import { useNavigationStart } from "@/components/layout/navigation-provider";
@@ -37,14 +38,8 @@ export function Sidebar({ user }: { user: Profile }) {
 
   return (
     <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 border-r bg-card">
-      <div className="flex h-16 items-center gap-2 border-b px-6">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-sm">
-          EF
-        </div>
-        <div>
-          <p className="font-semibold text-sm">EstateVoxa CRM</p>
-          <p className="text-xs text-muted-foreground">Real Estate CRM</p>
-        </div>
+      <div className="flex h-16 items-center border-b px-4">
+        <BrandLogo className="h-9" />
       </div>
       <nav className="flex-1 space-y-1 p-4" onClick={startNavigation}>
         {sidebarItems.map(({ href, label, icon }) => (
@@ -85,9 +80,7 @@ export function MobileHeader({
   return (
     <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b bg-background/95 px-4 backdrop-blur md:hidden">
       <div className="flex items-center gap-2">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-xs">
-          EF
-        </div>
+        <BrandLogo className="h-7" />
         <h1 className="font-semibold">{title}</h1>
       </div>
       <Link href="/dashboard" className="relative tap-target flex items-center justify-center">

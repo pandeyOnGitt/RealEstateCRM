@@ -3,6 +3,7 @@ import { formatCurrency } from "@/lib/utils";
 import { PROPERTY_TYPE_LABELS, type PropertyType } from "@/lib/types";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { BrandLogo } from "@/components/brand-logo";
 
 export default async function SharePropertyPage({
   params,
@@ -17,8 +18,8 @@ export default async function SharePropertyPage({
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-lg">
         <div className="bg-brand px-4 py-6 text-white">
-          <p className="text-sm opacity-80">EstateVoxa CRM</p>
-          <h1 className="text-2xl font-bold mt-1">{property.title}</h1>
+          <BrandLogo className="h-8 rounded-md" />
+          <h1 className="text-2xl font-bold mt-3">{property.title}</h1>
           <p className="opacity-90">{property.location}</p>
         </div>
         {property.property_images?.[0] && (

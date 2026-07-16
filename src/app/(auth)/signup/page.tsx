@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { BrandLogo } from "@/components/brand-logo";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -33,6 +34,9 @@ export default function SignUpPage() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-teal-50 to-white p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
+          <div className="mx-auto mb-4 flex justify-center">
+            <BrandLogo priority className="h-12" />
+          </div>
           <CardTitle className="text-2xl">Create Your CRM</CardTitle>
           <CardDescription>Set up EstateVoxa for your real estate business</CardDescription>
         </CardHeader>

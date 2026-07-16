@@ -15,6 +15,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function InviteAcceptForm({
   invitation,
@@ -59,6 +60,9 @@ export function InviteAcceptForm({
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-teal-50 to-white p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
+          <div className="mx-auto mb-4 flex justify-center">
+            <BrandLogo priority className="h-12" />
+          </div>
           <CardTitle className="text-2xl">Join {invitation.organizationName}</CardTitle>
           <CardDescription>
             You were invited as <strong>{invitation.roleLabel}</strong>. Set your
