@@ -42,7 +42,7 @@ export function Sidebar({ user }: { user: Profile }) {
           EF
         </div>
         <div>
-          <p className="font-semibold text-sm">EstateFlow CRM</p>
+          <p className="font-semibold text-sm">EstateVoxa CRM</p>
           <p className="text-xs text-muted-foreground">Real Estate CRM</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
--- EstateFlow CRM Database Schema
+-- EstateVoxa CRM Database Schema
 -- Run with: supabase db push or apply via Supabase SQL editor
 
 -- Enable extensions

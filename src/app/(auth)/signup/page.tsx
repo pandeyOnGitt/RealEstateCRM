@@ -34,7 +34,7 @@ export default function SignUpPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">Create Your CRM</CardTitle>
-          <CardDescription>Set up EstateFlow for your real estate business</CardDescription>
+          <CardDescription>Set up EstateVoxa for your real estate business</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

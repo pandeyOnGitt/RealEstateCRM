@@ -169,7 +169,7 @@ export async function sendFollowUp(
     return sendEmail({
       organizationId,
       to,
-      subject: "Follow up from EstateFlow CRM",
+      subject: "Follow up from EstateVoxa CRM",
       body,
       leadId,
       sentBy,

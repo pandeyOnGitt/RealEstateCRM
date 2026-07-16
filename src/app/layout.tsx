@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EstateFlow CRM",
+  title: "EstateVoxa CRM",
   description: "Mobile-first Real Estate CRM for sales teams",
 };
 

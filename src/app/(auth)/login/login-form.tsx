@@ -46,14 +46,14 @@ export default function LoginForm() {
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground text-xl font-bold">
             EF
           </div>
-          <CardTitle className="text-2xl">EstateFlow CRM</CardTitle>
+          <CardTitle className="text-2xl">EstateVoxa CRM</CardTitle>
           <CardDescription>Sign in to manage your real estate leads</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" required placeholder="admin@estateflow.demo" />
+              <Input id="email" name="email" type="email" required placeholder="admin@estatevoxa.demo" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
@@ -65,7 +65,7 @@ export default function LoginForm() {
             </Button>
           </form>
           <p className="mt-4 text-center text-xs text-muted-foreground">
-            Demo: admin@estateflow.demo / demo123456
+            Demo: admin@estatevoxa.demo / demo123456
           </p>
           <p className="mt-2 text-center text-sm text-muted-foreground">
             New business?{" "}

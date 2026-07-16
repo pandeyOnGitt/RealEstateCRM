@@ -1,5 +1,5 @@
 /**
- * EstateFlow CRM Seed Script
+ * EstateVoxa CRM Seed Script
  * Run: npm run db:seed
  * Requires SUPABASE_SERVICE_ROLE_KEY and NEXT_PUBLIC_SUPABASE_URL in .env.local
  */
@@ -18,7 +18,7 @@ const supabase = createClient(
 const DEMO_PASSWORD = "demo123456";
 
 async function seed() {
-  console.log("🌱 Seeding EstateFlow CRM...\n");
+  console.log("🌱 Seeding EstateVoxa CRM...\n");
 
   const { data: org, error: orgErr } = await supabase
     .from("organizations")
@@ -35,11 +35,11 @@ async function seed() {
   console.log("✓ Organization:", org.name);
 
   const users = [
-    { email: "admin@estateflow.demo", name: "Rajesh Kumar", role: "admin", phone: "+919876543210" },
-    { email: "agent1@estateflow.demo", name: "Priya Sharma", role: "sales_agent", phone: "+919876543211" },
-    { email: "agent2@estateflow.demo", name: "Amit Singh", role: "sales_agent", phone: "+919876543212" },
-    { email: "field@estateflow.demo", name: "Suresh Patel", role: "field_executive", phone: "+919876543213" },
-    { email: "social@estateflow.demo", name: "Neha Gupta", role: "social_media_manager", phone: "+919876543214" },
+    { email: "admin@estatevoxa.demo", name: "Rajesh Kumar", role: "admin", phone: "+919876543210" },
+    { email: "agent1@estatevoxa.demo", name: "Priya Sharma", role: "sales_agent", phone: "+919876543211" },
+    { email: "agent2@estatevoxa.demo", name: "Amit Singh", role: "sales_agent", phone: "+919876543212" },
+    { email: "field@estatevoxa.demo", name: "Suresh Patel", role: "field_executive", phone: "+919876543213" },
+    { email: "social@estatevoxa.demo", name: "Neha Gupta", role: "social_media_manager", phone: "+919876543214" },
   ];
 
   const profileIds: Record<string, string> = {};

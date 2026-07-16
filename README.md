@@ -1,4 +1,4 @@
-# EstateFlow CRM
+# EstateVoxa CRM
 
 A production-ready, mobile-first Real Estate CRM built with Next.js 15, Supabase, and Twilio. Manage leads, automate agent-to-lead bridge calls, share property photos in one click, track follow-ups, attendance, and social media — all from your phone.
 
@@ -108,7 +108,7 @@ SMTP_PORT=587
 SMTP_USER=your-brevo-smtp-user
 SMTP_PASSWORD=your-brevo-smtp-key
 SMTP_FROM_EMAIL=no-reply@yourdomain.com
-SMTP_FROM_NAME="EstateFlow CRM"
+SMTP_FROM_NAME="EstateVoxa CRM"
 OTP_SECRET=your-random-secret-at-least-32-chars
 OTP_EXPIRY_MINUTES=10
 ```
@@ -175,7 +175,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-**Demo login:** `admin@estateflow.demo` / `demo123456`
+**Demo login:** `admin@estatevoxa.demo` / `demo123456`
 
 ## Webhook Testing
 
@@ -244,7 +244,7 @@ Add all env vars from `.env.example` in Vercel dashboard (Project → Settings �
 | `SMTP_USER` | Your Brevo SMTP login (`xxx@smtp-brevo.com`) |
 | `SMTP_PASSWORD` | Your Brevo SMTP key (`xsmtpsib-...`) |
 | `SMTP_FROM_EMAIL` | Verified sender in Brevo |
-| `SMTP_FROM_NAME` | `EstateFlow CRM` (no quotes needed) |
+| `SMTP_FROM_NAME` | `EstateVoxa CRM` (no quotes needed) |
 | `OTP_SECRET` | 32+ char random string |
 
 Also add all Supabase keys (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`).

@@ -28,7 +28,7 @@ export function getSmtpConfig(): SmtpEnvConfig {
     user: trim(process.env.SMTP_USER),
     password: trim(process.env.SMTP_PASSWORD),
     fromEmail: trim(process.env.SMTP_FROM_EMAIL),
-    fromName: trim(process.env.SMTP_FROM_NAME) || "EstateFlow CRM",
+    fromName: trim(process.env.SMTP_FROM_NAME) || "EstateVoxa CRM",
     otpSecret: trim(process.env.OTP_SECRET),
     otpExpiryMinutes: Number(trim(process.env.OTP_EXPIRY_MINUTES) || 10),
   };
